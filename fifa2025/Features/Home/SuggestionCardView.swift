@@ -79,10 +79,15 @@ struct SuggestionCard: View {
                     Spacer()
                     
                     Text("Itinerario Sugerido")
-                        .font(.system(size: 28, weight: .bold))
+                        .font(.system(size: 22, weight: .bold))
                         .foregroundColor(.white)
                         .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
-                    
+                        .padding(.bottom, 5)
+                    Text("Te recomendamos los mejores lugares!")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(.white)
+                        .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
+                        .padding(.bottom, 5)
                     HStack(spacing: 12) {
                         HStack(spacing: 4) {
                             Image(systemName: "map.fill")
@@ -131,23 +136,7 @@ struct SuggestionCard: View {
             
             // Action buttons
             HStack(spacing: 10) {
-                Button(action: {
-                    if let firstPlace = firstPlace {
-                        print("Ver en mapa - \(firstPlace.name)")
-                    }
-                }) {
-                    HStack(spacing: 6) {
-                        Image(systemName: "map.fill")
-                            .font(.system(size: 15))
-                        Text("Ver en mapa")
-                            .font(.system(size: 14, weight: .medium))
-                    }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-                    .background(Color(hex: "#2F4FFC"))
-                    .cornerRadius(14)
-                }
+               
                 
                 Button(action: {
                     viewModel.scheduleSuggestion(suggestion)

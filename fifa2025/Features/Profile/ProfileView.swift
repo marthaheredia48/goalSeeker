@@ -31,10 +31,10 @@ struct ProfileView: View {
                     ProfileHeaderView(user: userData.user)
                     
                     // ✅ Selector de ubicación en Profile
-                    ProfileLocationPickerSection(
-                        locationService: locationService,
-                        currentLocationName: $currentLocationName
-                    )
+                   // ProfileLocationPickerSection(
+                       // locationService: locationService,
+                     //   currentLocationName: $currentLocationName
+                 //   )
                     
                     GamificationStatsView(
                         points: userData.user.points,
@@ -290,7 +290,7 @@ struct ProfileHeaderView: View {
                         .padding(.trailing, 5)
                     
                     VStack(alignment: .leading) {
-                        Text(user.name)
+                        Text("Ana")
                             .font(Font.theme.largeTitle)
                             .foregroundColor(Color.primaryText)
                         

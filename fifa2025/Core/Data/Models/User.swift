@@ -223,8 +223,8 @@ final class CommunityViewModel: ObservableObject {
     
     private let currentUser = UserModel(
         id: UUID(),
-        username: "oscar19",
-        displayName: "Oscar",
+        username: "ana804",
+        displayName: "Ana",
         avatarName: "user_local",
         country: "Mexico"
     )

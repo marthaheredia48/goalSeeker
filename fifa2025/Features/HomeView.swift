@@ -42,7 +42,7 @@ struct LocationPickerSection: View {
                         Image(systemName: "chevron.down")
                             .font(.system(size: 10))
                     }
-                    .foregroundColor(.fifaCompPurple)
+                    .foregroundColor(.white)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
                     .background(Color.fifaCompPurple.opacity(0.2))
@@ -141,7 +141,7 @@ struct HomeView: View {
           
 
                         
-                        HeaderGreetingView(name: "Óscar")
+                        HeaderGreetingView(name: "Ana")
                         ScoreView(points: userData.user.points)
                         
                    

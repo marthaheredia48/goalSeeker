@@ -15,6 +15,9 @@ struct ItineraryMapViewDirect: View {
     @EnvironmentObject var userDataManager: UserDataManager
     @StateObject private var viewModel = ItineraryMapViewModel()
     @State private var selectedLocation: MapLocation? = nil
+    @State private var rating: Int = 0
+    @State private var reviewText: String = ""
+
     
     // ✅ USAR SINGLETON COMPARTIDO
     private let locationService = SharedLocationService.shared
@@ -150,6 +153,9 @@ final class ItineraryMapViewModel: ObservableObject {
     @Published var mapRegion: MKCoordinateRegion
     @Published var isLoading = false
     @Published var errorMessage: String?
+    @State private var rating: Int = 0
+    @State private var reviewText: String = ""
+
     
     init() {
         self.mapRegion = MKCoordinateRegion(
@@ -242,13 +248,15 @@ struct LocationDetailSheet: View {
     let location: MapLocation
     @Environment(\.dismiss) var dismiss
     @Environment(\.openURL) var openURL
+    @State private var rating: Int = 0
+    @State private var reviewText: String = ""
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     headerSection
-                    basicInfoSection
+            
                     contactSection
                     actionButtonsSection
                     
@@ -270,48 +278,33 @@ struct LocationDetailSheet: View {
     }
     
     private var headerSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .center, spacing: 26) {
+
             HStack {
+                Spacer() // Esto centra el contenido del HStack
+
                 Image(systemName: location.type.sfSymbol)
                     .font(.title2)
                     .foregroundColor(.white)
-                    .frame(width: 44, height: 44)
+                    .frame(width: 54, height: 54)
                     .background(colorForLocationType(location.type))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                
-                VStack(alignment: .leading) {
-                    Text(location.type.type)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    .padding(.leading, 15)
+
+                VStack(alignment: .center) {
+                    
                     Text(location.name)
                         .font(.title2.weight(.bold))
                         .foregroundColor(.primary)
+                    Text(location.type.type)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
+                Spacer()
+         
             }
-            
-            if !location.description.isEmpty {
-                Text(location.description)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
-        }
-        .padding()
-        .background(Color(.secondarySystemGroupedBackground))
-        .cornerRadius(15)
-    }
-    
-    private var basicInfoSection: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Información")
-                .font(.headline)
-                .foregroundColor(.primary)
-            
-            InfoRowView(
-                icon: "location.fill",
-                title: "Ubicación",
-                content: String(format: "%.4f, %.4f", location.latitude, location.longitude),
-                color: .blue
-            )
+
+         
         }
         .padding()
         .background(Color(.secondarySystemGroupedBackground))
@@ -320,6 +313,61 @@ struct LocationDetailSheet: View {
     
     private var contactSection: some View {
         VStack(alignment: .leading, spacing: 16) {
+            
+        
+            VStack(alignment: .center, spacing: 8) {
+                Text("¿Cómo calificarías tu experiencia?")
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                
+                HStack(spacing: 13) {
+                    ForEach(1...5, id: \.self) { index in
+                        Image(systemName: index <= rating ? "star.fill" : "star")
+                            .foregroundColor(.yellow)
+                            .font(.title2)
+                            .onTapGesture {
+                                rating = index
+                            }
+                    }
+                }
+            }
+            
+           
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Cuéntanos tu experiencia")
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                
+                ZStack(alignment: .topLeading) {
+                    if reviewText.isEmpty {
+                        Text("Escribe aquí tu reseña detallada")
+                            .foregroundColor(.gray)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 8)
+                    }
+                    
+                    TextEditor(text: $reviewText)
+                        .frame(height: 120)
+                        .padding(4)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
+                }
+                Button {
+                        print(" Guardado: \(rating) estrellas, review: \(reviewText)")
+                     
+                    } label: {
+                        Text("Guardar")
+                            .frame(maxWidth: 350)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .font(.headline)
+                    }
+                    .padding(.top, 4)
+            }
+
+      
             if hasContactInfo {
                 Text("Contacto")
                     .font(.headline)
@@ -373,6 +421,7 @@ struct LocationDetailSheet: View {
         .background(Color(.secondarySystemGroupedBackground))
         .cornerRadius(15)
     }
+
     
     private var actionButtonsSection: some View {
         HStack(spacing: 12) {
@@ -387,16 +436,7 @@ struct LocationDetailSheet: View {
                     .cornerRadius(12)
             }
             
-            Button {
-                shareLocation()
-            } label: {
-                Image(systemName: "square.and.arrow.up")
-                    .font(.title3)
-                    .frame(width: 50, height: 50)
-                    .background(Color.blue.opacity(0.15))
-                    .foregroundColor(.blue)
-                    .cornerRadius(12)
-            }
+           
         }
     }
     

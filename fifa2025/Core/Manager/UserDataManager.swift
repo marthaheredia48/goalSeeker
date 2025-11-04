@@ -23,16 +23,16 @@ struct SavedChallengePost: Codable {
 @MainActor
 class UserDataManager: ObservableObject {
     
-    // ⭐ SINGLETON para compartir en toda la app
+    
     static let shared = UserDataManager()
     
     @Published var user: User {
         didSet {
-            saveUser() // Guardar usuario completo cuando cambie
+            saveUser()
         }
     }
     
-    // Keys para UserDefaults
+
     private let userKey = "savedUser"
     private let pointsKey = "userPoints"
     private let streakKey = "userStreak"
@@ -201,8 +201,8 @@ class UserDataManager: ObservableObject {
         
         let currentUser = UserModel(
             id: UUID(),
-            username: "oscar192010",
-            displayName: "Oscar",
+            username: "ana804",
+            displayName: "Ana",
             avatarName: "user_local",
             country: "Mexico"
         )

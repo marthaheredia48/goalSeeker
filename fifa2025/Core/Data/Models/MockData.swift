@@ -6,28 +6,20 @@
 //
 
 
-
-//
-//  MockData.swift
-//  fifa2025
-//
-//  Created by Georgina on 07/10/25.
-//
-
 import Foundation
 import CoreLocation
 
 struct MockData {
     
     
-    // Usuario por defecto (actualizado con nuevo campo archetype)
+    // Usuario por defecto
     static let user = User(
         id: UUID(),
-        name: "Oscar",
+        name: "Ana",
         profileImageName: "user_local",
         teamPreference: "Explorer",
         opinionOnboardingPlace: Set<LocationType>(),
-        archetype: nil, // 🆕 Se configurará en onboarding
+        archetype: nil,
         points: 0,
         streak: 0,
         completedChallenges: [],
@@ -38,7 +30,7 @@ struct MockData {
     // Sample locations
     static let sampleLocations: [MapLocation] = [
         MapLocation(
-            id: "museo_frida_001",  // ← AÑADIDO
+            id: "museo_frida_001",
             denueID: "museo_frida_001",
             name: "Museo Frida Kahlo",
             type: .cultural,
@@ -51,7 +43,7 @@ struct MockData {
             website: "https://museofridakahlo.org.mx"
         ),
         MapLocation(
-            id: "tacos_guero_001",  // ← AÑADIDO
+            id: "tacos_guero_001",
             denueID: "tacos_guero_001",
             name: "Tacos El Güero",
             type: .food,
@@ -64,7 +56,7 @@ struct MockData {
             website: nil
         ),
         MapLocation(
-            id: "estadio_azteca_001",  // ← AÑADIDO
+            id: "estadio_azteca_001",
             denueID: "estadio_azteca_001",
             name: "Estadio Azteca",
             type: .stadium,
@@ -77,7 +69,7 @@ struct MockData {
             website: "https://estadioazteca.com.mx"
         ),
         MapLocation(
-            id: "mercado_artesanias_001",  // ← AÑADIDO
+            id: "mercado_artesanias_001",
             denueID: "mercado_artesanias_001",
             name: "Mercado de Artesanologías",
             type: .souvenirs,
@@ -90,7 +82,7 @@ struct MockData {
             website: nil
         ),
         MapLocation(
-            id: "bar_faena_001",  // ← AÑADIDO
+            id: "bar_faena_001",
             denueID: "bar_faena_001",
             name: "Bar La Faena",
             type: .entertainment,
@@ -187,7 +179,7 @@ extension MockData {
     static func userWithHistory() -> User {
         User(
             id: UUID(),
-            name: "Oscar",
+            name: "Ana",
             profileImageName: "user_local",
             teamPreference: "México",
             opinionOnboardingPlace: [LocationType.food, LocationType.cultural, LocationType.stadium],
