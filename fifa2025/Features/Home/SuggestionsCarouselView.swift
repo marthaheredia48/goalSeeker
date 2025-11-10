@@ -37,7 +37,6 @@ struct ExploreCityView: View {
                                 .shadow(radius: 4)
                         }
                     }
-                    .padding()
                 }
             }
         }

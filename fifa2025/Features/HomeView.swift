@@ -16,7 +16,7 @@ struct LocationPickerSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("🧪 Probar ubicaciones de CDMX")
+                Text("Ubicaciones de CDMX")
                     .font(Font.theme.subheadline)
                     .foregroundColor(Color.primaryText)
                 

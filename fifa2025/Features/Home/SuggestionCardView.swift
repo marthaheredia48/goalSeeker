@@ -39,7 +39,7 @@ struct SuggestionCard: View {
             // Header con imagen del primer lugar
             ZStack(alignment: .top) {
                 if let firstPlace = firstPlace {
-                    Image(firstPlace.imageName)
+                    Image("cdmx")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 180)
