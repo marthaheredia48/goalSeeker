@@ -49,7 +49,7 @@ struct AlbumView: View {
             ZStack {
                 ScrollView {
                     VStack(spacing: 24) {
-                        Text("FWC26")
+                        Text("Goal Seeker")
                             .font(.title.weight(.heavy))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, alignment: .center)

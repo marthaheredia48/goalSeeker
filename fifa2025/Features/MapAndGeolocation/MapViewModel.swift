@@ -18,7 +18,7 @@ final class MapViewModel: ObservableObject {
     private let denueService = DENUEService()
     private var cancellables = Set<AnyCancellable>()
     
-    // ✅ USAR SINGLETON COMPARTIDO
+  
     private let locationService = SharedLocationService.shared
     
     private var locationCache = CacheManager<[MapLocation]>()

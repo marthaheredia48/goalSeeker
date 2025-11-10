@@ -278,7 +278,7 @@ struct HeaderGreetingView: View {
     
     var body: some View {
         VStack {
-            Text("FWC26")
+            Text("Goal Seeker")
                 .font(.title.weight(.heavy))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, alignment: .center)

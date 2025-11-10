@@ -268,7 +268,7 @@ struct ProfileHeaderView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("FWC26")
+                Text("Goal Seeker")
                     .font(.title.weight(.heavy))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .center)

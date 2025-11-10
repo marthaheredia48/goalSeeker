@@ -18,7 +18,7 @@ struct CommunityView: View {
              
                 ScrollView {
                     VStack(spacing: 0) {
-                        Text("FWC26")
+                        Text("Goal Seeker")
                             .font(.title.weight(.heavy))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, alignment: .center)
