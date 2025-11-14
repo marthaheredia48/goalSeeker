@@ -64,9 +64,4 @@ Representing **Universidad de las Américas Puebla (UDLAP)**.
 **Mentor:** Dr. Zobeida Guzmán  
 **Co-Mentor:** Humberto Alejandro Zepeda González  
 
----
-
-## 💬 Acknowledgment  
-This project was developed during the **Changemakers Social Challenge National Hackathon 2025**.  
-We are incredibly grateful for the guidance, creativity, and teamwork that made this idea possible.
 
