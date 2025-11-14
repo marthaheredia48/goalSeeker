@@ -1,4 +1,4 @@
-# ⭐ Goal Seeker  
+# Goal Seeker  
 **A personalized travel and exploration app inspired by the FIFA World Cup 2026.**  
 
 Goal Seeker is a Swift-based mobile application designed to help fans discover each World Cup host city in an interactive, meaningful, and gamified way. The app connects users with local businesses, generates personalized itineraries using machine learning, and encourages exploration through challenges and rewards.
